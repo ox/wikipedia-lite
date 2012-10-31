@@ -1,0 +1,23 @@
+!!! 5
+%html
+  %head
+    %title Wikipedia-lite
+    %link{href: "/css/bootstrap.min.css", rel: "stylesheet"}
+
+  %body
+    .navbar.navbar-static-top
+      .navbar-inner
+        %a.brand{href: "/"} Wikipedia-lite
+        %form.form-search.navbar-search.pull-left{action: "/search", method: "POST"}
+          .input-append
+            %input.search-query.typeahead-box{type: "text", name: "search", "data-provide" => "typeahead", autocomplete: "off"}
+            %button.btn{type: "submit"} Search
+        %a.btn.pull-right{href: "/new"}
+          %i.icon.icon-plus
+          Create
+
+    .container
+      =yield
+    %script{src: "http://code.jquery.com/jquery-latest.js"}
+    %script{src: "/js/bootstrap.min.js"}
+    %script{src: "/js/application.js"}

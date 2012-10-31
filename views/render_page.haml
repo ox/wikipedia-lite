@@ -1,0 +1,18 @@
+.row
+  .span8
+    %h1= page["title"]
+  .span4
+
+.row
+  .span12
+    = $markdown.render(page["body"])
+
+.row
+  .span12
+    %p.muted
+      %small
+        Edited last on #{page["date"]}
+        %a{href: "/edit/#{page["sanitized_title"]}"}
+          %i.icon.icon-pencil
+          edit
+

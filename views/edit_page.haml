@@ -1,0 +1,18 @@
+.row{style: "margin-top: 20px"}
+  .span12
+    %form{action: "/edit", method: "POST"}
+      %input{type: "hidden", name: "id", id: "page_id", value: page["id"]}
+      .control-group
+        %input.input-block-level{type: "text", name: "title", value: page["title"], placeholder: "Title" }
+      .control-group
+        %textarea.input-block-level{rows: 20, name: "body"}= page["body"]
+      .control-group
+        %button.btn.btn-primary{type: "submit"}
+          %i.icon.icon-white.icon-ok
+          Save changes
+        %a.btn.btn-secondary{href: "/wiki/#{page["sanitized_title"]}"}
+          Cancel
+        %a.pull-right{href: "/delete/#{page["id"]}"}
+          %i.icon.icon-trash
+          Delete Page
+
